@@ -94,7 +94,7 @@ CSS = """
   .kpi-card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px 12px; position: relative; overflow: hidden; }
   .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--emerald), var(--sky)); }
   .kpi-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
-  .kpi-value { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--white); }
+  .kpi-value { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--white); }
   .kpi-delta { font-size: 12px; margin-top: 4px; }
   .delta-up   { color: var(--emerald); }
   .delta-down { color: var(--rose); }
