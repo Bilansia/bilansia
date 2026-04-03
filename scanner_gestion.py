@@ -1,6 +1,6 @@
 """
 ╔══════════════════════════════════════════════════════════════════╗
-║         DeepFEC — Portail Audit Financier                        ║
+║         Bilansia — Portail Audit Financier                       ║
 ║         Expert Forensic Accounting | FinTech Dashboard           ║
 ╚══════════════════════════════════════════════════════════════════╝
 Dépendances : pip install streamlit pandas plotly numpy scipy google-generativeai fpdf
@@ -44,7 +44,7 @@ except ImportError:
 #  CONFIG GLOBALE & CSS
 # ─────────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="DeepFEC — Audit Forensic",
+    page_title="Bilansia — Audit Forensic",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -538,9 +538,9 @@ def build_financial_context(cr: pd.DataFrame, bilan: pd.DataFrame, scores: dict,
     ctx = [prefix, f"STRUCTURED FINANCIAL DATA (fiscal year {annee}):"]
     ctx.append(f"- Annual revenue (CA total) : {fmt_eur(ca_total)}")
     ctx.append(f"- Cumulative net result     : {fmt_eur(rn_total)}")
-    ctx.append(f"- Global health score       : {scores.get('global', 0)}/100")
+    ctx.append(f"- Global health score        : {scores.get('global', 0)}/100")
     ctx.append(f"- Break-even point (Seuil)  : {fmt_eur(scores.get('seuil_rentabilite', 0))}")
-    ctx.append(f"- Global BFR                : {fmt_eur(scores.get('bfr', 0))}")
+    ctx.append(f"- Global BFR                 : {fmt_eur(scores.get('bfr', 0))}")
     
     if alerts:
         ctx.append("\n--- DETECTED FORENSIC ALERTS ---")
@@ -1117,7 +1117,7 @@ def generate_pdf_report(cr, bilan, fec, scores, alerts, exercice):
 # ─────────────────────────────────────────────────────────────────
 def render_sidebar():
     with st.sidebar:
-        st.markdown("<div style='text-align:center;margin-bottom:24px;'><div style='font-family:Syne;font-size:1.4rem;font-weight:800;color:#F1F5F9;'>⬡ DeepFEC</div><div style='font-family:DM Mono;font-size:9px;color:#64748B;letter-spacing:.15em;'>PORTAIL AUDIT v7.4</div></div>", unsafe_allow_html=True)
+        st.markdown("<div style='text-align:center;margin-bottom:24px;'><div style='font-family:Syne;font-size:1.4rem;font-weight:800;color:#F1F5F9;'>⬡ Bilansia</div><div style='font-family:DM Mono;font-size:9px;color:#64748B;letter-spacing:.15em;'>PORTAIL AUDIT v7.4</div></div>", unsafe_allow_html=True)
         st.markdown("<div style='font-family:DM Mono;font-size:10px;color:#64748B;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;'>① Exercice analysé</div>", unsafe_allow_html=True)
         exercice = st.selectbox("Exercice", ["2027", "2026", "2025", "2024", "2023", "2022"], index=3, label_visibility="collapsed")
         st.divider()
@@ -1240,7 +1240,7 @@ def _render_chat_tab(cr, bilan, scores, alerts, mode, exercice, raw_pdf):
 
 def main():
     st.markdown(CSS, unsafe_allow_html=True)
-    st.markdown('<div class="secure-banner"><div class="dot"></div> DeepFEC v7.5</div>', unsafe_allow_html=True)
+    st.markdown('<div class="secure-banner"><div class="dot"></div> Bilansia v7.5</div>', unsafe_allow_html=True)
     
     exercice, files, cr, bilan, fec, ndf, app_mode, alerts, scores, raw_pdf = render_sidebar()
 
